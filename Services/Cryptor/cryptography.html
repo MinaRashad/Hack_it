@@ -55,6 +55,7 @@
 		let decryptText = document.getElementById('decrypt')
 		let lastUsed = 'encrypt'
 		let method = null
+		let hashes = ['SHA1', 'MD5'] 
 		numKey.type = 'number'
 		numKey.value = 0
 		numKey.min = 0
@@ -106,7 +107,11 @@
 				encryptText.value = method(text,key,false)
 				
 			}else{
+				if(hashes.indexOf(method.name) != -1 ){
+					encryptText.value = 'Hashes are not decryptable'
+				}else{
 				encryptText.value = method(decryptText.value,false)
+				}
 
 			}
 		}

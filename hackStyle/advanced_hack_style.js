@@ -11,7 +11,6 @@ var msg_nom = 0
 var isTyping = true
 typing = setInterval(()=>{
 	if(isTyping){
-		console.log(isTyping)
 		if (counter < msg_text[msg_nom].length) {
 			msg.innerHTML =msg.innerHTML+msg_text[msg_nom][counter]
 			counter++
