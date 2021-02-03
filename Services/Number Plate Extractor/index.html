@@ -132,27 +132,30 @@
 		Analyze
 	</button>
 </div>
-<div id="result">
+<div id="result" style="z-index: 3;">
 	<div style="background-color:#111;">
-	<span style="font-size: 3vw;cursor: pointer;" onclick="document.getElementById('result').style.display='none'">
+	<span style="font-size: 3vw;cursor: pointer;" onclick="document.getElementById('result').style.display='none';ocument.getElementById('cover').style.display='none';">
 	X</span></div>
 	<center>Car Data</center><br>
 	<div dir="rtl" style="padding: 10px;">
 		نوع المركبة:<span id="carType"></span><br><br>
 		المحافظة: <span id="city"></span><br><br>
-		&nbsp;المزيد من المعلومات:<br><br>
+		&nbsp;<h3>المزيد من المعلومات:</h3><br><br>
 		لوحة <span id="isBanned"></span><br><br>
 
-		<a style="position: unset;font-size: unset;color: green" href="https://www.egypt.gov.eg/mobile/services/NTPMOJ-GG/functions/PayFines.aspx">مخالفات ↗</a> السيارة<br>
+		<a style="position: unset;font-size: unset;color: green" href="https://ppo.gov.eg/webcenter/portal/PPOPortal/pages_publicservices/trafficservices">مخالفات ↗</a> الرخصة موقع النيابة العامة<br>
+		<a style="position: unset;font-size: unset;color: green" href="https://www.egypt.gov.eg/mobile/services/NTPMOJ-GG/functions/PayFines.aspx">مخالفات ↗</a> الرخصة موقع المرور<br>
+		
 	</div>
-	</div>
+</div>
+<div id="cover" style="position: absolute;right: 0;top: 0;width: 100vw;height:100vh;background-color: rgb(0,0,0,0.5);display: none;"></div>
 <a href="../../index.html">Home↩</a>
 <script type="text/javascript">
 	let topBar = document.getElementById('ground')
 	let numBar = document.getElementById('num')
 	let letterBar = document.getElementById('letters')
 	let colorElem = document.getElementById('color')
-
+	let cover = document.getElementById('cover')
 
 
 let updateColor = (color)=>{
@@ -193,6 +196,7 @@ let getResults = ()=>{
 	typeElem.innerText=type
 	isBanned.innerText=Data['Banned'].indexOf(letters)==-1?"غير ممنوعة":"ممنوعة"
 	resultBox.style.display='block'
+	cover.style.display = 'block';
 }
 
 let Data = {
